@@ -4,10 +4,12 @@ public class Singeritem {
 
     String name;
     String mobile;
+    int reId;
 
-    public Singeritem(String name, String mobile) {
+    public Singeritem(String name, String mobile, int reId) {
         this.name = name;
         this.mobile = mobile;
+        this.reId = reId;
     }
  //변수를 직접 접근하는 것 보다 get, set 메서드 사용
     public String getName() {
@@ -25,7 +27,16 @@ public class Singeritem {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
- //객체 안의 데이터 확인하는 내용을 출력하는 메서드
+
+    public int getReId() {
+        return reId;
+    }
+
+    public void setReId(int reId) {
+        this.reId = reId;
+    }
+
+    //객체 안의 데이터 확인하는 내용을 출력하는 메서드
     @Override
     public String toString() {
         return "Singeritem{" +

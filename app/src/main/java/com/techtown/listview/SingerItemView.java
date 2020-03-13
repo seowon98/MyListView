@@ -3,6 +3,7 @@ package com.techtown.listview;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import androidx.annotation.Nullable;
 public class SingerItemView extends LinearLayout {
     TextView textview1;
     TextView textview2;
-
+    ImageView imageview;
     public SingerItemView(Context context) {
         super(context);
 
@@ -32,6 +33,7 @@ public class SingerItemView extends LinearLayout {
 
        textview1= (TextView) findViewById(R.id.textview1);
        textview2= (TextView) findViewById(R.id.textview2);
+       imageview = (ImageView) findViewById(R.id.imageview);
 }
 
 public void setName(String name){
@@ -40,5 +42,7 @@ public void setName(String name){
     public void setMobile(String mobile){
         textview2.setText(mobile);
     }
-
+public void setImage(int reId){
+        imageview.setImageResource(reId);
+}
 }
