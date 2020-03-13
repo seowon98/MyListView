@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addItem(new Singeritem("시스타","010-1078-1670",R.drawable.red));
         adapter.addItem(new Singeritem("투애니원","010-1500-156",R.drawable.red));
     listView.setAdapter(adapter);
-
+ //버튼 눌렀을 때
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
