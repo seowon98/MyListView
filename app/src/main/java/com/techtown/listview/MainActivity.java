@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,14 +22,19 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     SingerAdapter adapter;
 
+    EditText editText;
+    EditText editText2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        editText=(EditText)findViewById(R.id.editText);
+        editText2=(EditText)findViewById(R.id.editText2);
 
-    ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
     adapter = new SingerAdapter();
         adapter.addItem(new Singeritem("소녀시대","010-1000-1100",R.drawable.red));
         adapter.addItem(new Singeritem("소녀","010-1000-1100",R.drawable.red));
@@ -44,8 +51,20 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"선택 : "+item.getName(),Toast.LENGTH_LONG).show();
         }
     });
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = editText.getText().toString();
+                String mobile = editText.getText().toString();
 
+                adapter.addItem(new Singeritem(name, mobile, R.drawable.red));
+                adapter.notifyDataSetChanged(); //데이터 갱신
+            }
+        });
     }
+
+
     //SingerAdapter
     class SingerAdapter extends BaseAdapter {
 
